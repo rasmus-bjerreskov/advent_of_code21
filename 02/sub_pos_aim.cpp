@@ -8,16 +8,16 @@ void sub_pos_aim::move(command cmd, int val)
 {
 	switch (cmd)
 	{
-    case mov_fwd:
+    case command::mov_fwd:
         _forward += val;
         _depth += val * _aim;
         break;
 
-    case mov_up:
+    case command::mov_up:
         _aim -= val;
         break;
 
-    case mov_down:
+    case command::mov_down:
         _aim += val;
         break;
 

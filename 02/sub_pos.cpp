@@ -1,7 +1,7 @@
 #include "sub_pos.h"
 using namespace std;
 
-sub_pos::sub_pos() : _forward(0), _depth(0), _cmd(mov_fwd)
+sub_pos::sub_pos() : _forward(0), _depth(0), _cmd(command::mov_fwd)
 {
 }
 
@@ -14,26 +14,26 @@ void sub_pos::parse_cmd(const string& input)
     ss >> cmd >> val;
 
     if (cmd == "forward")
-        move(mov_fwd, val);
+        move(command::mov_fwd, val);
     else if (cmd == "down")
-        move(mov_down, val);
+        move(command::mov_down, val);
     else if (cmd == "up")
-        move(mov_up, val);
+        move(command::mov_up, val);
 }
 
 void sub_pos::move(command cmd, int val)
 {
     switch (cmd)
     {
-    case mov_fwd:
+    case command::mov_fwd:
         _forward += val;
         break;
 
-    case mov_up:
+    case command::mov_up:
         _depth -= val;
         break;
 
-    case mov_down:
+    case command::mov_down:
         _depth += val;
         break;
 

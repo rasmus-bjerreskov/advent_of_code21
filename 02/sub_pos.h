@@ -5,7 +5,7 @@
 class sub_pos
 {
 public:
-	enum command {mov_fwd, mov_up, mov_down};
+	enum class command {mov_fwd, mov_up, mov_down};
 
 	sub_pos();
 	void parse_cmd(const std::string& s);
