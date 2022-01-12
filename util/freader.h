@@ -30,7 +30,9 @@ freader<T>::operator std::vector<T>()
 	std::ifstream infile;
 	infile.open(_fname);
 	
-	if (std::is_same<T, std::string>::value)
+	//strings require special handling because of streams treating any whitespace as delimiter
+	//constexpr to choose at compile time
+	if constexpr (std::is_same<T, std::string>::value)
 	{
 		std::string str;
 		while (getline(infile, str))
