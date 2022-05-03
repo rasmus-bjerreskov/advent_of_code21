@@ -1,5 +1,12 @@
 #pragma once
 
+/**
+* File reader template
+* Used to construct a vector of objects from a text file of line-separated values
+* Undefined behaviour if lines contain whitespace other than line break and used on T other than std::string
+* 
+*/
+
 #include <string>
 #include <fstream>
 #include <vector>
@@ -45,5 +52,5 @@ freader<T>::operator std::vector<T>()
 		std::istream_iterator<T> ifit(infile);	
 		std::copy(ifit, std::istream_iterator<T>(), std::back_inserter(tmp));
 	}
-	return tmp;
+	return tmp; //vector has move constructor, does not return copy (stop looking this up)
 }
